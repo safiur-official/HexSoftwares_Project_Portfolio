@@ -10,7 +10,6 @@ This portfolio showcases my projects, technical skills, certifications, and cont
 ## 🚀 Live Preview
 
 🔗 [View Portfolio](#)  
-(Replace with your deployed link)
 
 ---
 

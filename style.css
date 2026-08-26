@@ -53,19 +53,30 @@ font-size:1.9rem;
 
 /* Navbar */
 header{
-position:sticky;
-top:0;
-background:rgba(255,255,255,0.85);
-backdrop-filter:blur(12px);
-border-bottom:1px solid var(--border);
-z-index:1000;
+    position:sticky;
+    top:0;
+
+    background:rgba(255,255,255,0.85);
+
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+
+    border-bottom:1px solid var(--border);
+
+    z-index:1000;
+
+    transition:
+        background 0.35s ease,
+        border-color 0.35s ease,
+        box-shadow 0.35s ease;
 }
 
 .nav-container{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:20px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:14px 20px;
 }
 
 .logo-wrapper{
@@ -154,13 +165,10 @@ border-radius:12px;
 margin-bottom:10px;
 }
 
-/*
-   CERTIFICATE MODAL
- */
 
-/* ======================================================
+/* 
    GLASS CERTIFICATE MODAL
-====================================================== */
+ */
 
 .cert-modal{
 position:fixed;
@@ -208,9 +216,9 @@ from{opacity:0;transform:scale(0.92);}
 to{opacity:1;transform:scale(1);}
 }
 
-/* ======================================================
+/* 
    CENTER TOP CLOSE BUTTON (TRANSPARENT STYLE)
-====================================================== */
+ */
 
 .close-btn{
 position:fixed;
@@ -529,12 +537,12 @@ color:#6b7280;
 */
 
 .hero-bio{
-max-width:750px;
-margin:20px auto 10px auto;
-font-size:15px;
-line-height:1.7;
-color:#6b7280;
-text-align:center;
+    max-width:900px;
+    margin:20px 0 12px 0;
+    font-size:15px;
+    line-height:1.8;
+    color:var(--muted);
+    text-align:left;
 }
 
 /* Dark mode support */
@@ -547,22 +555,26 @@ color:#cbd5e1;
 */
 
 .hero-card{
-padding:50px;
-border-radius:20px;
+    padding:45px 50px;
+    border-radius:20px;
+    width:100%;
+    box-sizing:border-box;
 }
 
 .hero-content{
-display:flex;
-align-items:center;
-gap:40px;
-flex-wrap:wrap;
+    display:grid;
+    grid-template-columns:180px minmax(0, 1fr);
+    align-items:center;
+    column-gap:55px;
+    width:100%;
 }
 
 /* Profile Photo */
 .hero-photo{
-flex:0 0 180px;
-display:flex;
-justify-content:center;
+    width:180px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .hero-photo img{
@@ -580,11 +592,13 @@ transform:scale(1.05);
 }
 
 /* 
-   HERO LEFT ALIGN
+   HERO
  */
 
 .hero-text{
-text-align:left;
+    text-align:left;
+    min-width:0;
+    width:100%;
 }
 
 /* 
@@ -635,8 +649,11 @@ max-width:750px;
 
 /* Tagline spacing */
 .hero-tagline{
-margin-bottom:25px;
-font-weight:500;
+    margin:0 0 25px 0;
+    font-weight:500;
+    line-height:1.7;
+    color:var(--muted);
+    text-align:left;
 }
 
 /* Dark mode improvement */
@@ -644,20 +661,72 @@ body.dark .role-title{
 color:#818cf8;
 }
 
-/* Responsive */
-@media(max-width:768px){
-.hero-content{
-flex-direction:column;
-text-align:center;
+
+/* 
+   RESPONSIVE HERO
+ */
+
+@media (max-width: 900px){
+
+    .hero-content{
+        grid-template-columns:1fr;
+        justify-items:center;
+        row-gap:30px;
+        text-align:center;
+    }
+
+    .hero-photo{
+        width:180px;
+    }
+
+    .hero-text{
+        width:100%;
+        text-align:center;
+    }
+
+    .hero-bio{
+        max-width:750px;
+        margin:20px auto 12px auto;
+        text-align:center;
+    }
+
+    .hero-tagline{
+        text-align:center;
+    }
 }
 
-.hero-photo{
-margin-bottom:20px;
-}
 
-.hero-text{
-text-align:center;
-}
+@media (max-width: 600px){
+
+    .hero-card{
+        padding:30px 20px;
+    }
+
+    .hero-photo{
+        width:150px;
+    }
+
+    .hero-photo img{
+        width:150px;
+        height:150px;
+    }
+
+    .gradient-name{
+        font-size:2.2rem;
+    }
+
+    .role-title{
+        font-size:1.05rem;
+    }
+
+    .hero-bio{
+        font-size:14px;
+        line-height:1.7;
+    }
+
+    .hero-tagline{
+        font-size:14px;
+    }
 }
 
 
@@ -830,9 +899,9 @@ height:260px;
 border:0;
 }
 
-/* ======================================================
+/* 
    CTA BLOCK – REFINED TRANSPARENT VERSION
-====================================================== */
+ */
 
 .cta-block{
 margin-top:35px;
@@ -1111,7 +1180,7 @@ background:linear-gradient(135deg,#818cf8,#22d3ee);
 */
 
 .gradient-name{
-font-size:3.2rem;
+font-size:clamp(2.2rem, 4vw, 3.2rem);
 font-weight:700;
 letter-spacing:0.5px;
 margin-bottom:12px;
@@ -1168,7 +1237,7 @@ background-clip:text;
 filter: drop-shadow(0 0 10px rgba(129,140,248,0.6));
 }
 
-/* ================= PROJECT BUTTONS ================= */
+/*  PROJECT BUTTONS  */
 
 .project-card {
   position: relative;
@@ -1268,4 +1337,356 @@ body.dark .btn-live {
 
 body.dark .btn-source {
   box-shadow: 0 6px 20px rgba(52, 152, 219, 0.6);
+}
+
+body.dark header{
+    background:rgba(15,23,42,0.78);
+    border-bottom:1px solid rgba(129,140,248,0.15);
+
+    backdrop-filter:blur(20px) saturate(140%);
+    -webkit-backdrop-filter:blur(20px) saturate(140%);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.20);
+}
+
+body.dark .nav-name{
+    color:#f8fafc;
+}
+
+body.dark nav a{
+    color:#cbd5e1;
+}
+
+body.dark nav a:hover{
+    color:#a5b4fc;
+}
+
+body.dark nav a::after{
+    background:#818cf8;
+}
+
+body.dark .nav-profile{
+    border:2px solid rgba(129,140,248,0.45);
+    box-shadow:
+        0 0 15px rgba(129,140,248,0.18);
+}
+
+
+/* 
+   PREMIUM 3D CYLINDRICAL THEME TRANSITION
+   Light ↔ Dark
+ */
+
+/* 
+   VIEW TRANSITION SETUP
+ */
+
+@supports (view-transition-name: root) {
+
+    /* Give the root transition a 3D stage */
+    ::view-transition-group(root) {
+        perspective: 1400px;
+        transform-style: preserve-3d;
+    }
+
+    /* Both snapshots behave like physical pages */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        transform-origin: center center;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+
+        animation-duration: 0.30s;
+
+        animation-timing-function:
+            cubic-bezier(0.65, 0, 0.35, 1);
+
+        transform-style: preserve-3d;
+    }
+
+
+    /* 
+       Rotates away like a cylindrical sheet
+     */
+
+    ::view-transition-old(root) {
+
+        animation-name: cylinderFlipOut;
+
+        z-index: 2;
+
+        filter:
+            brightness(1)
+            drop-shadow(0 0 0 transparent);
+    }
+
+
+    /* 
+       Rotates into view
+     */
+
+    ::view-transition-new(root) {
+
+        animation-name: cylinderFlipIn;
+
+        z-index: 1;
+
+        filter:
+            brightness(1);
+    }
+}
+
+/* 
+   PERFORMANCE DURING THEME TRANSITION
+ */
+
+::view-transition-old(root),
+::view-transition-new(root) {
+    will-change:transform, opacity;
+}
+
+
+/* 
+  THEME → ROTATE AWAY
+ */
+
+@keyframes cylinderFlipOut {
+
+    0% {
+
+        transform:
+            perspective(1400px)
+            rotateY(0deg)
+            scale(1);
+
+        opacity:1;
+
+        filter:
+            brightness(1);
+    }
+
+
+    20% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-25deg)
+            scale(0.98);
+
+        opacity:1;
+
+        filter:
+            brightness(0.96);
+    }
+
+
+    45% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-90deg)
+            scale(0.92);
+
+        opacity:0.95;
+
+        filter:
+            brightness(0.82);
+    }
+
+
+    70% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-150deg)
+            scale(0.96);
+
+        opacity:0.45;
+
+        filter:
+            brightness(0.7);
+    }
+
+
+    100% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-180deg)
+            scale(1);
+
+        opacity:0;
+
+        filter:
+            brightness(0.65);
+    }
+}
+
+
+/* 
+    THEME → ROTATE INTO VIEW
+ */
+
+@keyframes cylinderFlipIn {
+
+    0% {
+
+        transform:
+            perspective(1400px)
+            rotateY(180deg)
+            scale(1);
+
+        opacity:0;
+
+        filter:
+            brightness(0.65);
+    }
+
+
+    30% {
+
+        transform:
+            perspective(1400px)
+            rotateY(150deg)
+            scale(0.96);
+
+        opacity:0.45;
+
+        filter:
+            brightness(0.75);
+    }
+
+
+    55% {
+
+        transform:
+            perspective(1400px)
+            rotateY(90deg)
+            scale(0.92);
+
+        opacity:0.95;
+
+        filter:
+            brightness(0.85);
+    }
+
+
+    80% {
+
+        transform:
+            perspective(1400px)
+            rotateY(25deg)
+            scale(0.98);
+
+        opacity:1;
+
+        filter:
+            brightness(0.97);
+    }
+
+
+    100% {
+
+        transform:
+            perspective(1400px)
+            rotateY(0deg)
+            scale(1);
+
+        opacity:1;
+
+        filter:
+            brightness(1);
+    }
+}
+
+
+/* 
+   FALLBACK FOR BROWSERS WITHOUT VIEW TRANSITIONS
+ */
+
+.theme-changing {
+
+    animation:
+        cylinderFallback
+        0.85s
+        cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+
+@keyframes cylinderFallback {
+
+    0% {
+
+        transform:
+            perspective(1400px)
+            rotateY(0deg)
+            scale(1);
+
+        opacity:1;
+    }
+
+
+    35% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-70deg)
+            scale(0.94);
+
+        opacity:0.8;
+    }
+
+
+    50% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-90deg)
+            scale(0.92);
+
+        opacity:0;
+    }
+
+
+    65% {
+
+        transform:
+            perspective(1400px)
+            rotateY(-90deg)
+            scale(0.92);
+
+        opacity:0;
+    }
+
+
+    100% {
+
+        transform:
+            perspective(1400px)
+            rotateY(0deg)
+            scale(1);
+
+        opacity:1;
+    }
+}
+
+
+/* 
+   REDUCE MOTION ACCESSIBILITY
+ */
+
+@media (prefers-reduced-motion: reduce) {
+
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+
+        animation:none !important;
+    }
+
+
+    .theme-changing {
+
+        animation:none !important;
+    }
 }

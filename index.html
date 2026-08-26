@@ -488,7 +488,8 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
 </section>
 
 <!-- FULL VIEW MODALS -->
-
+<div id="cert" class="cert-modal"><a href="#" class="modal-close">&times;</a><img src="images/CISCO Networking J_S_E.jpg"></div>
+<div id="cert0" class="cert-modal"><a href="#" class="modal-close">&times;</a><img src="images/HEX Cert.jpg"></div>
 <div id="cert1" class="cert-modal"><a href="#" class="modal-close">&times;</a><img src="images/cert1.jpg"></div>
 <div id="cert2" class="cert-modal"><a href="#" class="modal-close">&times;</a><img src="images/cert2.jpg"></div>
 <div id="cert3" class="cert-modal"><a href="#" class="modal-close">&times;</a><img src="images/cert3.jpg"></div>
@@ -588,6 +589,62 @@ toggle.addEventListener("click", () => {
 
     }, 850);
 
+});
+</script>
+
+<script>
+/* 
+   CONTENT PROTECTION
+ */
+
+document.addEventListener("copy", function (event) {
+    event.preventDefault();
+});
+
+document.addEventListener("cut", function (event) {
+    event.preventDefault();
+});
+
+
+/* Prevent common keyboard shortcuts */
+
+document.addEventListener("keydown", function (event) {
+
+    /* Ctrl+C */
+    if (event.ctrlKey && event.key.toLowerCase() === "c") {
+        event.preventDefault();
+    }
+
+    /* Ctrl+X */
+    if (event.ctrlKey && event.key.toLowerCase() === "x") {
+        event.preventDefault();
+    }
+
+    /* Ctrl+U - View source */
+    if (event.ctrlKey && event.key.toLowerCase() === "u") {
+        event.preventDefault();
+    }
+
+    /* Ctrl+Shift+I - DevTools */
+    if (
+        event.ctrlKey &&
+        event.shiftKey &&
+        event.key.toLowerCase() === "i"
+    ) {
+        event.preventDefault();
+    }
+
+    /* F12 */
+    if (event.key === "F12") {
+        event.preventDefault();
+    }
+
+});
+</script>
+
+<script>
+document.addEventListener("contextmenu", function (event) {
+    event.preventDefault();
 });
 </script>
 

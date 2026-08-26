@@ -1690,3 +1690,49 @@ body.dark .nav-profile{
         animation:none !important;
     }
 }
+
+/* 
+   CONTENT PROTECTION
+   Disable text selection but preserve links
+ */
+
+body {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Keep hyperlinks fully interactive */
+
+a,
+a * {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+
+    cursor: pointer;
+}
+
+
+/* Keep form controls usable */
+
+input,
+textarea,
+select,
+button {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}
+
+
+/* Images cannot be dragged */
+
+img {
+    -webkit-user-drag: none;
+    user-drag: none;
+}
